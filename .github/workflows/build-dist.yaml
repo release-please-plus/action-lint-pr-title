@@ -1,3 +1,5 @@
+# Builds the dist folder for any pull requests
+
 name: build-dist
 
 on:
