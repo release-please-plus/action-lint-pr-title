@@ -1,0 +1,14 @@
+{
+  "extends": "./node_modules/gts/tsconfig-google.json",
+  "compilerOptions": {
+    "declaration": false,
+    // "rootDir": "./src",
+    "outDir": "build",
+    "sourceMap": true,
+    "skipLibCheck": true,
+    "noImplicitAny": false,
+    "allowSyntheticDefaultImports": true,
+    "types": ["jest", "jest-extended"]
+  },
+  "include": ["src/**/*.ts"]
+}
