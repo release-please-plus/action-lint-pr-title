@@ -12,11 +12,11 @@ jobs:
       pull-requests: read
     runs-on: ubuntu-latest
     steps:
+      # need these since we're running locally
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-
       - uses: ./
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
