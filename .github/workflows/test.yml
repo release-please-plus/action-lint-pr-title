@@ -16,6 +16,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
+          cache: npm
       - run: node --version
       # The first installation step ensures that all of our production
       # dependencies work on the given Node.js version, this helps us find
