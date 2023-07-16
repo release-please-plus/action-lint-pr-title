@@ -1,7 +1,7 @@
 {
   "name": "action-lint-pr-title",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Ensure your PR title matches the commit lint spec.",
   "main": "index.js",
   "scripts": {
