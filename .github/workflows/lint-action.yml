@@ -24,19 +24,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - uses: pnpm/action-setup@v2
-        with:
-          version: 8
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-          cache: 'pnpm'
-      - name: Setup dotnet
-        uses: actions/setup-dotnet@v3
-        with:
-          dotnet-version: 7.0.x
       - name: Install dependencies
-        run: pnpm install
+        run: npm install
       - name: Run linters
         uses: wearerequired/lint-action@v2
         with:
