@@ -59,7 +59,7 @@ jobs:
       pull-requests: read
     runs-on: ubuntu-latest
     steps:
-      - uses: release-please-plus/action-lint-pr-title@master
+      - uses: release-please-plus/action-lint-pr-title@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
