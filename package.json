@@ -6,10 +6,11 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "fix": "gts fix",
     "build": "ncc build src/index.ts",
-    "lint": "gts lint",
-    "clean": "gts clean"
+    "lint": "eslint .",
+    "fix": "eslint . -fix",
+    "clean": "prettier , --write",
+    "format": "prettier . --check"
   },
   "repository": {
     "type": "git",
