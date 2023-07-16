@@ -2,29 +2,21 @@ on:
   push:
     branches:
       - main
-name: ci
+name: release
 jobs:
   test:
+    name: test prior to release
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node: [16, 18, 20]
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node }}
+          node-version: 18
           cache: npm
-      - run: node --version
-      # The first installation step ensures that all of our production
-      # dependencies work on the given Node.js version, this helps us find
-      # dependencies that don't match our engines field:
-      - run: npm install --production --engine-strict --ignore-scripts --no-package-lock
-      # Clean up the production install, before installing dev/production:
-      - run: rm -rf node_modules
       - run: npm install
       - run: npm test
   release:
+    name: release-please-plus
     needs: test
     runs-on: ubuntu-latest
     permissions:
@@ -33,6 +25,10 @@ jobs:
       pull-requests: write # to be able to comment on released pull requests
     steps:
       - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: npm
       # Now that we know the build runs, create a release PR if needed.
       - uses: release-please-plus/action@main
         id: release
