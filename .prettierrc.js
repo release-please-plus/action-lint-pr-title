@@ -1,3 +1,5 @@
+// Match google's formatting
+
 module.exports = {
   bracketSpacing: true,
   singleQuote: true,

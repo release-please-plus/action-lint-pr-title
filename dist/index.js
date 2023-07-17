@@ -43657,13 +43657,13 @@ try {
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.main = void 0;
-/* eslint-disable prettier/prettier */
+const node_process_1 = __nccwpck_require__(7742);
 const core = __nccwpck_require__(2186);
 const github = __nccwpck_require__(5438);
 const validatePrTitle_1 = __nccwpck_require__(9832);
 async function main() {
     try {
-        const client = github.getOctokit(process.env.GITHUB_TOKEN);
+        const client = github.getOctokit(node_process_1.default.env.GITHUB_TOKEN);
         const contextPullRequest = github.context.payload.pull_request;
         if (!contextPullRequest) {
             throw new Error("This action can only be invoked in `pull_request_target` or `pull_request` events. Otherwise the pull request can't be inferred.");
@@ -43680,7 +43680,6 @@ async function main() {
             pull_number: contextPullRequest.number
         });
         await (0, validatePrTitle_1.validatePrTitle)(pullRequest.title);
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
     }
     catch (error) {
         core.setFailed(error.message);
@@ -43694,6 +43693,7 @@ if (require.main === require.cache[eval('__filename')]) {
     });
 }
 else {
+    // eslint-disable-next-line antfu/no-cjs-exports
     module.exports = {
         main
     };
@@ -43800,6 +43800,14 @@ module.exports = require("https");
 
 "use strict";
 module.exports = require("net");
+
+/***/ }),
+
+/***/ 7742:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("node:process");
 
 /***/ }),
 
