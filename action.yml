@@ -1,9 +1,9 @@
-name: 'action-lint-pr-title'
-description: 'Ensure your PR title matches the commit lint spec'
+name: action-lint-pr-title
+description: Ensure your PR title matches the commit lint spec
 author: John Campion
 runs:
-  using: 'node16'
-  main: 'dist/index.js'
+  using: node16
+  main: dist/index.js
 branding:
-  icon: 'shield'
-  color: 'green'
+  icon: shield
+  color: green

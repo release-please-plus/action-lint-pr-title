@@ -45,7 +45,7 @@ You can adjust the `commitlint.config.js` if required.
 ## Example github action config in your project
 
 ```yml
-name: 'Lint PR Title'
+name: Lint PR Title
 on:
   pull_request_target:
     types:

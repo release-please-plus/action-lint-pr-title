@@ -1,4 +1,4 @@
-/* eslint-disable prettier/prettier */
+import process from 'node:process'
 import * as core from '@actions/core'
 import * as github from '@actions/github'
 
@@ -27,7 +27,6 @@ export async function main() {
     })
 
     await validatePrTitle(pullRequest.title)
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
     core.setFailed(error.message as string)
   }
@@ -39,6 +38,7 @@ if (require.main === module) {
     core.setFailed(`release-please failed: ${err.message}`)
   })
 } else {
+  // eslint-disable-next-line antfu/no-cjs-exports
   module.exports = {
     main
   }
