@@ -9,12 +9,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-          cache: npm
-      - run: npm install
-      - run: npm test
+          cache: pnpm
+      - run: pnpm install
+      - run: pnpm test
   release:
     name: release-please-plus
     needs: test
@@ -25,10 +28,12 @@ jobs:
       pull-requests: write # to be able to comment on released pull requests
     steps:
       - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-          cache: npm
       # Now that we know the build runs, create a release PR if needed.
       - uses: release-please-plus/action@main
         id: release

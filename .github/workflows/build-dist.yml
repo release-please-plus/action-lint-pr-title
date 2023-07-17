@@ -20,16 +20,19 @@ jobs:
         with:
           repository: ${{ github.event.pull_request.head.repo.full_name }}
           ref: ${{ github.event.pull_request.head.ref }}
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-          cache: 'npm'
+          cache: 'pnpm'
       - name: install
-        run: npm ci
+        run: pnpm i
       - name: test
-        run: npm run test
+        run: pnpm run test
       - name: build
-        run: npm run build
+        run: pnpm run build
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: 'chore: build dist'
