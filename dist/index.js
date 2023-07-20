@@ -5876,7 +5876,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.subjectFullStop = void 0;
 const message_1 = __importDefault(__nccwpck_require__(3384));
 const subjectFullStop = (parsed, when = 'always', value = '.') => {
-    let colonIndex = parsed.header.indexOf(':');
+    const colonIndex = parsed.header.indexOf(':');
     if (colonIndex > 0 && colonIndex === parsed.header.length - 1) {
         return [true];
     }
