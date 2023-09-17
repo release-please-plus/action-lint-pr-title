@@ -58,7 +58,7 @@ jobs:
             { "type": "xml", "path": "src/Directory.Build.props", "xpath": "//project/propertygroup/version" }
       - name: Update semver tags # useful for actions
         if: ${{ steps.release.outputs.releases_created }}
-        uses: sersoft-gmbh/running-release-tags-action@v2.1.2
+        uses: sersoft-gmbh/running-release-tags-action@v3.0.0
         with:
           tag: ${{ steps.release.outputs.tag_name }}
           update-minor: false
