@@ -37,7 +37,7 @@
   "devDependencies": {
     "@jcamp/eslint-config": "0.8.2",
     "@types/jest": "^29.5.3",
-    "@types/node": "^20.4.2",
+    "@types/node": "^22.18.12",
     "@vercel/ncc": "^0.36.1",
     "jest": "^29.6.1",
     "jest-extended": "^4.0.0",
